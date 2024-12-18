@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title id="titulo">Inicio</ion-title>
+
+    <!-- menu acoplado -->
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark"></ion-icon>        
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card class="main-card">
+    <ion-card-header>
+      <ion-card-title>Panel Principal</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Gestiona tus clases y asistencia de manera eficiente.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card">
+    <ion-card-content class="card-content">
+      <ion-card-title class="card-title">Ver clases</ion-card-title>
+      <ion-button slot="end" shape="round" size="small" (click)="Seccion()">
+        <!-- <ion-icon name="menu-outline" size="large" color="dark"></ion-icon> -->
+        <ion-icon name="caret-forward-outline" size="large" color="dark"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card">
+    <ion-card-content class="card-content">
+      <ion-card-title class="card-title">Registro de asistencia</ion-card-title>
+      <ion-button slot="end" shape="round" size="small" (click)="asistencia()">
+        <!-- <ion-icon name="menu-outline" size="large" color="dark"></ion-icon> -->
+        <ion-icon name="caret-forward-outline" size="large" color="dark"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

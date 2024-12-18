@@ -1,0 +1,30 @@
+swiper-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #DFDBE5;
+}
+
+
+swiper-slide {
+  height: 100%;
+  --bullet-background-active: #fff;
+  --bullet-background: #000;
+}
+
+ion-img{
+  margin-top: 100px;
+}
+
+h1,p{
+  color: var(--ion-color-secondary-contrast);
+  font-weight: 700;
+  padding-left: 3rem;
+  padding-top: 1rem;
+}
+
+ion-button {
+  margin: 30px ;
+}

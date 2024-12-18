@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title id="titulo">Escanear QR</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark"></ion-icon>        
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  <!-- Información del QR escaneado -->
+  <ion-list *ngIf="barcodes.length > 0">
+    <ion-item *ngFor="let barcode of barcodes">
+      <ion-label>
+        <h2>Formato: {{ barcode.format }}</h2>
+        <p>Valor: {{ barcode.rawValue }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Mensaje cuando no hay códigos escaneados -->
+  <div *ngIf="barcodes.length === 0" class="empty-message">
+    <p>Presiona el botón para escanear.</p>
+  </div>
+
+  <!-- Botón de escaneo -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,19 @@
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .attendance-table th, .attendance-table td {
+    border: 1px solid #dcdcdc;
+    padding: 8px;
+  }
+  
+  .attendance-table th {
+    font-weight: bold;
+  }
+  
+  .attendance-table td {
+    font-size: 1rem;
+  }

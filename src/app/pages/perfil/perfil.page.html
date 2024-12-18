@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <app-header title="Perfil"></app-header>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="usuario">
+
+    <ion-card class="profile-content">
+
+      <div align="center" class="image">
+        <ion-avatar>
+          <img [src]="usuario.imagen || 'assets/img/leo.png'" alt="Imagen de usuario" />
+        </ion-avatar>
+      </div>
+
+      <ion-item lines="none" class="profile">
+        <ion-label class="ion-text-center">
+          <ion-text>{{ usuario.nombre }} {{usuario.apellido}}</ion-text><br>
+          <ion-text>{{ usuario.usuario }}</ion-text>
+          <p>
+            <ion-text color="medium">{{ usuario.correo}}</ion-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <div style="text-align: center; margin-top: 30px; margin-bottom: 30px; font-family: georgia;">
+        <ion-button (click)="actualizarUsuario(this.usuario)" color="primary">
+          Actualizar Perfil
+        </ion-button>
+      </div>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Asignaturas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content *ngIf="asignaturas.length > 0; else noAsignaturas">
+        <ion-list>
+          <ion-item *ngFor="let asignatura of asignaturas">
+            <ion-label>
+              <h2>{{ asignatura.nombre }}</h2>
+              <p>{{ asignatura.sigla }} - Sala: {{ asignatura.sala }}</p>
+              <p>Sección: {{ asignatura.seccion }}</p>
+              <p>Horario:</p>
+              <ul>
+                <li *ngFor="let horario of asignatura.horarios">
+                  {{ horario.dia }}: {{ horario.horaInicio }} - {{ horario.horaFin }}
+                </li>
+              </ul>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      <ng-template #noAsignaturas>
+        <ion-item>
+          <ion-label>No tienes asignaturas asignadas.</ion-label>
+        </ion-item>
+      </ng-template>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>LOGIN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-container">
+    <form [formGroup]="loginForm">
+      <h1 class="heading">👋 Bienvenido <br><br></h1>
+      <ion-item lines="none" class="ion-item">
+        <ion-input type="email" placeholder="ingrese su correo" label="correo:" labelPlacement="floating"
+          formControlName="correo">
+        </ion-input>
+      </ion-item>
+
+      <div id="alerta" *ngIf="loginForm.get('correo')?.invalid && (loginForm.get('correo')?.dirty || 
+      loginForm.get('correo')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('correo')?.hasError('required')">
+          *Email es obligatorio
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('correo')?.hasError('correo')">
+          *Formato no válido
+        </div>
+      </div>
+
+      <ion-item>
+        <ion-input type="password" placeholder="ingrese password" label="contrasenia:" labelPlacement="floating"
+          formControlName="contrasenia">
+        </ion-input>
+      </ion-item>
+
+      <div id="alerta" *ngIf="loginForm.get('contrasenia')?.invalid && (loginForm.get('contrasenia')?.dirty || 
+      loginForm.get('contrasenia')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('contrasenia')?.hasError('required')">
+          *Password es obligatoria
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('contrasenia')?.hasError('minlength')">
+          *Password debe tener mínimo 8 caracteres
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top:30px">
+        <ion-button (click)="login()" [disabled]="!loginForm.valid" shape="round" color="primary">
+          Login
+        </ion-button>
+      </div>
+      <div style="text-align: center;">
+        <ion-button (click)="Registrar()" shape="round">
+          Registrarse
+        </ion-button>
+      </div>
+      <div style="text-align: center;">
+        <ion-button (click)="Password()" shape="round">
+          Recuperar Contrseña
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

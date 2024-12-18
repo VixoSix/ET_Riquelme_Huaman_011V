@@ -1,0 +1,94 @@
+<ion-header [translucent]="true">
+  <app-header title="Actualizar Perfil"></app-header>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Imagen de perfil -->
+  <div style="text-align: center; margin-top: 20px;">
+    <img *ngIf="seleccionarImagen" [src]="seleccionarImagen" alt="Imagen seleccionada" class="profile-image"
+      style="width: 120px; height: 120px;" />
+  </div>
+
+  <!-- Formulario de perfil -->
+  <form *ngIf="editMode">
+
+    <!-- Campo de imagen -->
+    <ion-list style="text-align:center;">Imagen Perfil
+      <ion-item>
+        <input type="file" (change)="subirImagen($event)" accept="image/*" name="imagen">
+      </ion-item>
+    </ion-list>
+
+    <!-- Campos de texto para editar -->
+    <ion-item>
+      <ion-input type="text" name="usuario" label="username" labelPlacement="floating" [(ngModel)]="usuario.usuario">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" name="nombre" label="nombre" labelPlacement="floating" [(ngModel)]="usuario.nombre">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" name="apellido" label="apellido" labelPlacement="floating" [(ngModel)]="usuario.apellido">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" name="correo" label="correo" labelPlacement="floating" [(ngModel)]="usuario.correo">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" name="contrasenia" label="*********" labelPlacement="floating" [(ngModel)]="usuario.contrasenia">
+      </ion-input>
+    </ion-item>
+
+    <!-- Botón de actualización -->
+    <div style="text-align: center; margin-top: 30px;">
+      <ion-button (click)="guardarCambios()" color="primary">
+        Actualizar
+      </ion-button>
+    </div>
+  </form>
+
+  <!-- Campos de solo visualización -->
+  <div *ngIf="!editMode">
+    <ion-list style="text-align: center;">
+      <ion-item>
+        <ion-label>Username:</ion-label>
+        <ion-text>{{ usuario.usuario }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre:</ion-label>
+        <ion-text>{{ usuario.nombre }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Apellido:</ion-label>
+        <ion-text>{{ usuario.apellido }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Correo:</ion-label>
+        <ion-text>{{ usuario.correo }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Contraseña:</ion-label>
+        <ion-text>*************</ion-text>
+      </ion-item>
+    </ion-list>
+
+    <!-- Botón para activar edición -->
+    <div style="text-align: center; margin-top: 30px;">
+      <ion-button (click)="toggleEditMode()" color="primary">
+        Editar Perfil
+      </ion-button>
+    </div>
+  </div>
+
+</ion-content>

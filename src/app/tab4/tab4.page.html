@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <!-- Botón de volver -->
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Título -->
+    <ion-title id="titulo">Ausencias</ion-title>
+
+    <!-- Botón de menú -->
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner *ngIf="!justificacion"></ion-spinner>
+
+  <ion-card *ngIf="justificacion">
+    <ion-card-header>
+      <ion-card-title>{{ justificacion.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Solo mostrar la imagen si justificatorio tiene un valor -->
+      <ion-item *ngIf="justificatorio">
+        <ion-label position="floating">Justificatorio (Imagen)</ion-label>
+        <ion-img [src]="justificatorio"></ion-img> <!-- Mostrar la imagen -->
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Descripción: </ion-label>
+        <ion-input [(ngModel)]="descripcion" type="text" readonly></ion-input> <!-- Solo lectura -->
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Comentario: </ion-label>
+        <ion-input [(ngModel)]="comentario" type="text"></ion-input> <!-- Comentario editable -->
+      </ion-item>
+
+      <ion-button expand="full" (click)="updateJustificacion()">Actualizar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title id="titulo">Asistencias</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" color="dark"></ion-icon>        
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+ 
+</ion-header>
+
+
+<ion-content>
+
+  <ion-spinner *ngIf="loading"></ion-spinner>
+
+  <ion-card *ngIf="asignatura && !loading">
+    <ion-card-header>
+      <ion-card-title>{{ asignatura.nombre }}</ion-card-title>
+      <ion-card-subtitle>{{ asignatura.sigla }} - Sala: {{ asignatura.sala }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Sección: {{ asignatura.seccionId }}</p>
+      <p>Profesor ID: {{ asignatura.profesorId }}</p>
+      <p>Horario:</p>
+      <ul>
+        <li *ngFor="let horario of asignatura.horarios">
+          {{ horario.dia }}: {{ horario.horaInicio }} - {{ horario.horaFin }}
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list *ngIf="groupedAsistenciasArray.length > 0">
+    <ion-list-header>
+      <h3>Asistencias</h3>
+    </ion-list-header>
+    <div *ngFor="let group of groupedAsistenciasArray">
+      <ion-item-divider>
+        <ion-label>{{ group.date }} ({{ obtenerDiaSemana(group.date) }})</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let asistencia of group.asistenciasGroup">
+        <ion-label>
+          <h2>{{ asistencia.nombre }}</h2>
+          <p>{{ asistencia.asistio ? 'Asistió' : 'No asistió' }}</p>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-list *ngIf="groupedJustificacionesArray.length > 0">
+    <ion-list-header>
+      <h3>Justificaciones</h3>
+    </ion-list-header>
+    <div *ngFor="let group of groupedJustificacionesArray">
+      <ion-item-divider>
+        <ion-label>{{ group.date }} ({{ obtenerDiaSemana(group.date) }})</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let justificacion of group.justificacionesGroup">
+        <ion-label>
+          <h2>{{ justificacion.nombre }}</h2>
+          <p>Comentario Alumno: {{ justificacion.descripcion || 'N/A' }}</p>
+          <p>Comentario Profesor: {{ justificacion.comentario || 'N/A' }}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="goToDetail(justificacion.id)">
+            <ion-icon name="arrow-forward" slot="end"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-item *ngIf="groupedAsistenciasArray.length === 0 && groupedJustificacionesArray.length === 0 && !loading">
+    <ion-label>No hay registros disponibles para esta asignatura.</ion-label>
+  </ion-item>
+
+
+</ion-content>

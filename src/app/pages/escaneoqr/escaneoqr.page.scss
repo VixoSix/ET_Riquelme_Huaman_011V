@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content:center;
+    justify-content: center;
+    align-items: center;
+    min-height: 94vh;
+    background-color: #fcfcfc;
+}
+  ion-card{
+    padding: 15px;
+  }
+  
+  ion-card-title{
+    color: var(--ion-color-primary);
+    font-weight: 700;
+    margin-left: 6rem;
+  }
+  ion-card-content{
+    color: var(--ion-color-primary-contrast);
+    font-weight: 800;
+  }
+
+  .button{
+    padding-left: 50px;
+  }

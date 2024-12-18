@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <swiper-container>
+
+    <swiper-slide>
+      <ion-img src="../../../assets/img/profesor.svg"></ion-img>
+      <h1>Hola.!</h1>
+      <p>Tienes una cuenta? Ingresa</p>
+      <ion-button  class="login" expand="block" (click)="login()">Login</ion-button>
+    </swiper-slide>
+
+    <swiper-slide>
+      <ion-img src="../../../assets/img/educador.svg"></ion-img>
+      <h1>Registrate!</h1>
+      <p>Rellana todo los campos del formulario</p>
+      <ion-button class="login" expand="block" (click)="register()">Registrar</ion-button>
+    </swiper-slide>
+
+  </swiper-container>
+</ion-content>
