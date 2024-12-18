@@ -1,0 +1,7 @@
+{
+  "name": "ClassCheckIn_3.0",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

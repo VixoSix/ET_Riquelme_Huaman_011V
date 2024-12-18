@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+
+    <div class="Header">
+      <div class="wrapBackButton">
+        <button class="backButton" (click)="volver()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </div>
+      <div class="wrapTitle">
+        <h1>Editar Perfil</h1> 
+      </div>
+    </div>
+
+    <form [formGroup]="editarUsuarioForm">
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Nombre</h1>
+        </div>
+        <input type="text" formControlName="nombre" name="nombre">
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Apellido</h1>
+        </div>
+        <input type="text" formControlName="apellido" name="apellido">
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Nombre de Usuario</h1>
+        </div>
+        <input type="text" formControlName="usuario" name="usuario">
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Imagen</h1>
+        </div>
+        <input type="file" formControlName="imagen" (change)="subirImagen($event)" accept="image/*" name="imagen">
+      </div>
+
+      <div class="button">
+        <ion-button expand="block" (click)="guardarYSalir()">Guardar Cambios</ion-button>
+      </div>
+      <div class="button button2">
+        <ion-button expand="block" (click)="consultaEliminar()">Eliminar foto de perfil</ion-button>
+      </div>
+    </form>
+
+  </div>
+</ion-content>

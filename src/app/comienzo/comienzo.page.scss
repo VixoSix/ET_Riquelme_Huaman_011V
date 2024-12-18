@@ -1,0 +1,97 @@
+.container{
+    background-color:#f1f1f1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Titulo{
+    background-color:#f1f1f1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    h1{
+        margin: 0;
+        color: #311d39;
+        font-size: 3.5rem;
+        font-weight: bold;
+        padding: 5rem 0 5.5rem 0;
+    }
+}
+
+.texto{
+    background-color:#f1f1f1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        color: #121212;
+        font-size: 25px;
+    }
+    p{
+        color: #393939;
+        text-align: center;
+    }
+}
+
+.botones{
+    background-color:#f1f1f1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 2rem 0 2rem 0;
+
+    .login-button{
+        --background: #5b30b3;
+        color: var(--button-letter);
+        width: 90%;
+        height: 3rem;
+        --border-radius: 10px;
+    }
+}
+
+.parrafo{
+    background-color:#f1f1f1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    p{
+        color: #989898;
+        text-align: center;
+        width: 90%;
+    }
+}
+
+.ayuda-version{
+    background-color:#f1f1f1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 7.5rem;
+    gap: 1.5rem;
+
+    a{
+        color: #5a33a6;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    p{
+        color: #272727;
+        text-align: center;
+        font-size: 1rem;
+    }
+}

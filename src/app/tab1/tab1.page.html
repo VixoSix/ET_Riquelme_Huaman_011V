@@ -1,0 +1,112 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+
+    <header class="header">
+      <div class="title-wrap" *ngIf="Usuario">
+        <h1>¡Hola {{ Usuario.nombre }}!</h1>
+        <h3>Alumno</h3>
+      </div>
+      <div class="botonPerfil">
+        <button (click)="irAlPerfil()">
+          <ion-icon name="card-outline"></ion-icon>
+        </button>
+      </div>
+    </header>
+
+    <div class="wrapCarrera">
+      <div class="carrera">
+        <div class="iconoCarrera">
+          <ion-icon name="code-slash-outline"></ion-icon>
+        </div>
+        <div class="nombreCarrera">
+          <h1>Ingeniería en Informática</h1>
+          <p>Alumno Regular</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="wrapSlides">
+      <swiper-container [spaceBetween]="10" [slidesPerView]="'auto'">
+        <swiper-slide>
+          <ion-img src="../../../assets/img/1.jpg"></ion-img>
+          <div class="overlay"></div>
+          <div class="slideContent">
+            <h1>
+              Único IP con la máxima acreditación de
+              7 años por tercer periodo consecutivo.
+            </h1>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-img src="../../../assets/img/2.jpg"></ion-img>
+          <div class="overlay"></div>
+          <div class="slideContent">
+            <h1>
+              En ClassCheckIn formamos especialistas
+              capaces de adaptarse al mundo
+            </h1>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-img src="../../../assets/img/3.jpg"></ion-img>
+          <div class="overlay"></div>
+          <div class="slideContent">
+            <h1 style="font-size: 18px;">ClassCheckIn Online</h1>
+            <p>Estudia donde y cuando quieras.</p>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h1>Asignaturas</h1>
+        <a (click)="verAsignaturas()">Ver todas</a>
+      </div>
+      <div class="containerSlides">
+        <swiper-container [spaceBetween]="10" [slidesPerView]="'auto'">
+            <swiper-slide *ngFor="let a of Asignaturas">
+              <div class="content-card">
+                <div class="header-slide">
+                  <ion-icon name="remove-outline"></ion-icon>
+                  <h1>{{ a.nombre }}</h1>
+                </div>
+                <div class="body-slide">
+                  <p>{{ getSeccion(a) || 'No asignada' }}</p>
+                </div>
+              </div>
+            </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+
+    <div class="card cardDocente">
+      <div class="card-header">
+        <h1>Docentes</h1>
+        <a (click)="verDocentes()"> Ver todas</a>
+      </div>
+      <div class="containerSlides">
+        <swiper-container [spaceBetween]="10" [slidesPerView]="'auto'">
+          <swiper-slide *ngFor="let p of Profesores">
+            <div class="content-card">
+              <div class="header-slide">
+                <ion-icon name="remove-outline"></ion-icon>
+                <h1>
+                  {{ p.nombre }} {{ p.apellido }}
+                </h1> 
+                <!-- Nombre del profe -->
+              </div>
+              <div class="body-slide">
+                <p>{{ p.correo }}</p>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+  </div>
+
+  <app-explore-container name="Tab 1 page"></app-explore-container>
+</ion-content>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />

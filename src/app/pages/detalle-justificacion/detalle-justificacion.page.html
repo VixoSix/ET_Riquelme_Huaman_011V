@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+  <div class="container-color">
+
+    <div class="Header">
+      <div class="wrapBackButton">
+        <button class="backButton" (click)="volver()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </div>
+      <div class="wrapTitle">
+        <h1>Detalle Justificación</h1> 
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="titulo">
+        <h1>FECHA: {{ justificacion?.fecha }}</h1>
+      </div>
+
+      <div class="wrapData">
+        <p>Asignatura</p>
+        <h2>{{ asignatura?.nombre }}</h2>
+      </div>
+
+      <div class="wrapData">
+        <p>Docente</p>
+        <h2>{{ profesor?.nombre }} {{ profesor?.apellido }}</h2>
+      </div>
+
+      <div class="wrapData">
+        <p>Descripción</p>
+        <h2>{{ justificacion?.descripcion }}</h2>
+      </div>
+
+      <div class="wrapData" *ngIf="justificacion?.comentario">
+        <p>Comentario</p>
+        <h2>{{ justificacion?.comentario }}</h2>
+      </div>
+
+      <div class="img-wrap">
+        <img *ngIf="justificacion?.justificatorio" [src]="justificacion?.justificatorio" alt="Imagen de Justificación">
+      </div>
+
+      <div class="buttons">
+        <div class="button">
+          <ion-button (click)="editarJustificacion(this.justificacion)" expand="block">Editar Justificación</ion-button>
+        </div>
+        <div class="button lastButton">
+          <ion-button (click)="consultaEliminar()" expand="block">Eliminar</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

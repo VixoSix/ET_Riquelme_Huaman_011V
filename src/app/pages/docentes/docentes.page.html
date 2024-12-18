@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+
+    <div class="Header">
+      <div class="wrapBackButton">
+        <button class="backButton" (click)="volver()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </div>
+      <div class="wrapTitle">
+        <h1>Docentes</h1> 
+      </div>
+    </div>
+
+    <div class="card" *ngFor="let a of profesoresConAsignaturas">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ a.profesor?.nombre }} {{ a.profesor?.apellido }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="wrap">
+            <p>Clase: {{ a.asignatura.nombre }} </p>
+            <p>Sección: {{ getSeccion(a.asignatura) || 'No asignada' }} </p>
+            <p>Sala: {{ a.asignatura.sala }} </p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+  </div>
+</ion-content>

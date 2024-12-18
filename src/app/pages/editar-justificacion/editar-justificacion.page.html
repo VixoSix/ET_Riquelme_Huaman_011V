@@ -1,0 +1,71 @@
+<ion-content [fullscreen]="true">
+ <div class="container">
+  <div class="Header">
+    <div class="wrapBackButton">
+      <button class="backButton" (click)="volver()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </div>
+    <div class="wrapTitle">
+      <h1>Editar Justificación</h1> 
+    </div>
+  </div>
+  <form [formGroup]="editarJustificacionForm">
+    <div class="wrapItem">
+      <div class="headerItem">
+        <ion-icon name="remove-outline"></ion-icon>
+        <h1>Fecha de la Inasistencia</h1>
+      </div>
+      <input formControlName="fecha" type="date" name="fecha" [max]="hoy">
+    </div>
+
+    <div class="wrapItem">
+      <div class="headerItem">
+        <ion-icon name="remove-outline"></ion-icon>
+        <h1>Asignatura</h1>
+      </div>
+      <select formControlName="asignatura" name="asignatura" id="asignatura" placeholder="Seleccione" size="1">
+        <option value="">Seleccione</option>
+        <option *ngFor="let a of Asignaturas" [value]="a.nombre">
+          {{ a.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="wrapItem">
+      <div class="headerItem">
+        <ion-icon name="remove-outline"></ion-icon>
+        <h1>Docente</h1>
+      </div>
+      <select formControlName="docente" name="docente" id="docente" placeholder="Seleccione" size="1">
+        <option value="">Seleccione</option>
+        <option *ngFor="let p of Profesores" [value]="p.nombre">
+          {{ p.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="wrapItem">
+      <div class="headerItem">
+        <ion-icon name="remove-outline"></ion-icon>
+        <h1>Descripción</h1>
+      </div>
+      <textarea formControlName="descripcion" name="descripcion" id="descripcion" maxlength="1000"></textarea>
+    </div>
+
+    <div class="wrapItem">
+      <div class="headerItem">
+        <ion-icon name="remove-outline"></ion-icon>
+        <h1>Imagen</h1>
+      </div>
+      <input formControlName="imagen" type="file" (change)="subirImagen($event)" accept="image/*">
+    </div>
+
+    <div class="wrapButton">
+      <ion-button (click)="actualizarJustificacion()" id="present-alert" expand="block">Actualizar Justificación</ion-button>
+    </div>
+
+  </form>
+
+ </div>
+</ion-content>

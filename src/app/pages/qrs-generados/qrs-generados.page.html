@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="Header">
+      <div class="wrapBackButton">
+        <button class="backButton" (click)="volver()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </div>
+      <div class="wrapTitle">
+        <h1>QRs Generados</h1> 
+      </div>
+    </div>
+
+    <div class="noHay" *ngIf="qrsGenerados.length === 0">
+      <p>No hay QRs generados</p>
+    </div>
+
+    <div class="card">
+      <ion-accordion-group>
+        <ion-accordion *ngFor="let qr of qrsGenerados; let i = index" [value]="qr.id">
+          <ion-item slot="header">
+            <ion-label>Fecha: {{qr.fechaAsistencia}}</ion-label>
+          </ion-item>
+          <div class="content" slot="content">
+            <div class="wrapQr">
+              <qrcode [qrdata]="qr.qr" class="qr"></qrcode>
+            </div>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </div>
+  </div>
+</ion-content>

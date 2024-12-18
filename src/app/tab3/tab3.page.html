@@ -1,0 +1,103 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="title-wrap">
+      <h1>Solicitud de Justificación</h1>  
+    </div>
+    
+    <form [formGroup]="jForm">
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Fecha de la Inasistencia</h1>
+        </div>
+        <input type="date" formControlName="fecha" name="fecha" [max]="hoy">
+        <div class="wrapMsg">
+          <div class="msg" *ngIf="jForm.get('fecha')?.hasError('required')&& 
+                                    (jForm.get('fecha')?.dirty || 
+                                    jForm.get('fecha')?.touched)">
+            <p>*La Fecha es obligatoria.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Asignatura</h1>
+        </div>
+
+        <select formControlName="asignatura" name="asignatura" id="Periodo" placeholder="Seleccione" size="1">
+          <option value="">Seleccione</option>
+          <option *ngFor="let a of Asignaturas" [value]="a.nombre">
+            {{ a.nombre }}
+          </option>
+        </select>
+        <div class="wrapMsg">
+          <div class="msg" *ngIf="jForm.get('asignatura')?.hasError('required')&& 
+                                    (jForm.get('asignatura')?.dirty || 
+                                    jForm.get('asignatura')?.touched)">
+            <p>*La Asignatura es obligatoria</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Docente</h1>
+        </div>
+
+        <select  formControlName="docente" name="docente" id="Periodo" placeholder="Seleccione" size="1">
+          <option value="">Seleccione</option>
+          <option *ngFor="let p of Profesores" [value]="p.nombre">
+            {{ p.nombre }}
+          </option>
+        </select>
+        <div class="wrapMsg">
+          <div class="msg" *ngIf="jForm.get('docente')?.hasError('required')&& 
+                                    (jForm.get('docente')?.dirty || 
+                                    jForm.get('docente')?.touched)">
+            <p>*El Docente es obligatorio.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Descripción</h1>
+        </div>
+        <textarea formControlName="descripcion" name="descripcion" id="descripcion" maxlength="1000"></textarea>
+        <div class="wrapMsg">
+          <div class="msg" *ngIf="jForm.get('descripcion')?.hasError('required')&& 
+                                    (jForm.get('descripcion')?.dirty || 
+                                    jForm.get('descripcion')?.touched)">
+            <p>*La Descripción es obligatoria.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Imagen</h1>
+        </div>
+        <input id="imagen" formControlName="imagen" type="file" (change)="subirImagen($event)" accept="image/*">
+        <div class="wrapMsg">
+          <div class="msg" *ngIf="jForm.get('imagen')?.hasError('required')&& 
+                                    (jForm.get('imagen')?.dirty || 
+                                    jForm.get('imagen')?.touched)">
+            <p>*La Imagen es obligatoria.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapButton">
+        <ion-button (click)="CrearJustificacion()" id="present-alert" expand="block">Crear Justificación</ion-button>
+      </div>
+    </form>
+
+  </div>
+
+  <app-explore-container name="Tab 3 page"></app-explore-container>
+</ion-content>

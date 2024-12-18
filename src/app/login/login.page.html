@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+
+    <div class="logo">
+      <h1 class="heading">ClassCheckIn</h1>
+    </div>
+    
+    <div class="login">
+      <h2>Iniciar Sesión</h2>
+    </div>
+    
+    <form [formGroup]="loginForm">
+      <div class="input">
+        <ion-item lines="none" class="ion-item">
+          <ion-input type="email" placeholder="Correo electrónico" name="correo" formControlName="correo"></ion-input>  
+        </ion-item>
+        <span></span>
+
+        <div class="wrapMsg" *ngIf="loginForm.get('correo')?.invalid &&
+                                    (loginForm.get('correo')?.dirty || 
+                                    loginForm.get('correo')?.touched)">
+          <div class="msg" *ngIf="loginForm.get('correo')?.hasError('required')">
+            <p>*El Correo electrónico es obligatorio.</p>
+          </div>
+          <div class="msg" *ngIf="loginForm.get('correo')?.hasError('minlength')">
+            <p>*El correo debe tener mínimo 8 caracteres.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pass">
+        <h2>Escribir contraseña</h2>
+      </div>
+
+      <div class="password">
+        <ion-item lines="none">
+          <ion-input type="password" placeholder="Contraseña" name="pass" formControlName="contrasenia"></ion-input>
+        </ion-item>
+        <span></span>
+
+        <div class="wrapMsg" *ngIf="loginForm.get('contrasenia')?.invalid &&
+                                    (loginForm.get('contrasenia')?.dirty || 
+                                    loginForm.get('contrasenia')?.touched)">
+          <div class="msg" *ngIf="loginForm.get('contrasenia')?.hasError('required')">
+            <p>*La Contraseña es obligatoria.</p>
+          </div>
+          <div class="msg" *ngIf="loginForm.get('contrasenia')?.hasError('minlength')">
+            <p>*La Contraseña debe tener mínimo 8 caracteres.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="forget">
+        <a (click)="olvidoContrasenia()">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <div class="boton">
+        <ion-button (click)="login()" expand="block">Iniciar Sesión</ion-button>
+      </div>
+
+      <div class="register">
+        <p>¿No tienes cuenta? <a (click)="register()">Registrarse</a></p>
+      </div>
+
+    </form>
+
+  </div>
+  
+</ion-content>

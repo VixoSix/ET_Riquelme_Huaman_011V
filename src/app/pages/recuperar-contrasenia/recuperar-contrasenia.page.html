@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-back-button (click)="volver()" text="Volver" color="dark"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Restablecer contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+
+    <div class="logo">
+      <h1>¿Olvidaste tu contraseña?</h1>
+      <p>Ingresa tu nueva contraseña</p>
+    </div>
+
+    <form [formGroup]="restablecerForm">
+
+      <div class="login">
+        <h2>Escriba su contraseña</h2>
+      </div>
+
+      <div class="password1 input">
+        <ion-item lines="none">
+          <ion-input type="password" placeholder="Contraseña" name="pass" formControlName="contrasenia1"></ion-input>
+        </ion-item>
+        <span></span>
+
+        <div class="wrapMsg" *ngIf="restablecerForm.get('contrasenia1')?.invalid &&
+                                    (restablecerForm.get('contrasenia1')?.dirty || 
+                                    restablecerForm.get('contrasenia1')?.touched)">
+          <div class="msg" *ngIf="restablecerForm.get('contrasenia1')?.hasError('required')">
+            <p>*La Contraseña es obligatoria.</p>
+          </div>
+          <div class="msg" *ngIf="restablecerForm.get('contrasenia1')?.hasError('minlength')">
+            <p>*La Contraseña debe tener mínimo 8 caracteres.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="login">
+        <h2>Repita su contraseña</h2>
+      </div>
+
+      <div class="password2 input">
+        <ion-item lines="none">
+          <ion-input type="password" placeholder="Contraseña" name="pass" formControlName="contrasenia2"></ion-input>
+        </ion-item>
+        <span></span>
+
+        <div class="wrapMsg" *ngIf="restablecerForm.get('contrasenia2')?.invalid &&
+                                    (restablecerForm.get('contrasenia2')?.dirty || 
+                                    restablecerForm.get('contrasenia2')?.touched)">
+          <div class="msg" *ngIf="restablecerForm.get('contrasenia2')?.hasError('required')">
+            <p>*La Contraseña es obligatoria.</p>
+          </div>
+          <div class="msg" *ngIf="restablecerForm.get('contrasenia2')?.hasError('minlength')">
+            <p>*La Contraseña debe tener mínimo 8 caracteres.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="boton">
+        <ion-button (click)="actualiarContrasenia()" expand="block">Restablecer Contraseña</ion-button>
+      </div>
+
+    </form>
+  </div>
+</ion-content>

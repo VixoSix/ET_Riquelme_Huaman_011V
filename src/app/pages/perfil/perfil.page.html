@@ -1,0 +1,61 @@
+<ion-content [fullscreen]="true">
+  <div class="container-color">
+
+    <div class="Header">
+      <div class="wrapBackButton">
+        <button class="backButton" (click)="volver()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </div>
+      <div class="wrapTitle">
+        <h1>Perfil</h1> 
+      </div>
+    </div>
+
+    <div class="container" *ngIf="Usuario">
+
+      <div class="img-wrap" *ngIf="Usuario.imagen">
+        <div class="border">
+          <ion-img  src="{{ Usuario.imagen }}"></ion-img>
+        </div>
+      </div>
+
+      <div class="nombre">
+        <h1>{{ Usuario.nombre }}  {{ Usuario.apellido }}</h1>
+      </div>
+
+      <div class="wrapData">
+        <p>Correo</p>
+        <h2>{{ Usuario.correo }}</h2>
+      </div>
+
+      <div class="wrapData">
+        <p>Nombre de Usuario</p>
+        <h2>{{ Usuario.usuario }}</h2>
+      </div>
+
+      <div class="wrapData">
+        <p>Escuela</p>
+        <h2>Informática y Telecomunicaciones</h2>
+      </div>
+
+      <div class="wrapData">
+        <p>Programa</p>
+        <h2>Ingeniería en Informática</h2>
+      </div>
+
+      <div class="wrapData">
+        <p>Sede</p>
+        <h2>MAIPÚ</h2>
+      </div>
+
+      <div class="button">
+        <ion-button expand="block" (click)="editar(this.Usuario)">Editar Perfil</ion-button>
+      </div>
+      <div class="button ultimo">
+        <ion-button expand="block" (click)="verQRS()">Ver QRs Generados</ion-button>
+      </div>
+    
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-app>
+
+  <ion-menu contentId="main" menuId="first" side="start" type="overlay">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <div class="container">
+        <ion-menu-toggle *ngFor="let m of opciones">
+          <ion-item (click)="handleOptionClick(m)" detail="true">
+            <ion-icon slot="start" [name]="m.icon" color="dark"></ion-icon>
+            <ion-label>{{m.name}}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+    
+    
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

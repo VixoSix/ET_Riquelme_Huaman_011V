@@ -1,0 +1,75 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="title-wrap">
+      <h1>Registro de Asistencias</h1>   
+    </div>
+
+    <form [formGroup]="asistenciaForm">      
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Asignatura</h1>
+        </div>
+
+        <select formControlName="asignatura" name="asignatura" id="Asignatura" placeholder="Seleccione" size="1">
+          <option value="">Seleccione</option>
+          <option *ngFor="let a of Asignaturas" [value]="a.nombre"> 
+             {{ a.nombre }}
+          </option>
+        </select>
+        <div class="wrapMsg" *ngIf="asistenciaForm.get('asignatura')?.invalid && 
+                                    (asistenciaForm.get('asignatura')?.dirty || 
+                                    asistenciaForm.get('asignatura')?.touched)">
+          <div class="msg" *ngIf="asistenciaForm.get('asignatura')?.hasError('required')">
+            <p>*La Asignatura es obligatoria.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Docente</h1>
+        </div>
+
+        <select formControlName="docente" name="docente" id="Docente" placeholder="Seleccione" size="1">
+          <option value="">Seleccione</option>
+          <option *ngFor="let p of Profesores" [value]="p.nombre">
+            {{ p.nombre }}
+          </option>
+        </select>
+        <div class="wrapMsg" *ngIf="asistenciaForm.get('docente')?.invalid && 
+                                    (asistenciaForm.get('docente')?.dirty || 
+                                    asistenciaForm.get('docente')?.touched)">
+          <div class="msg" *ngIf="asistenciaForm.get('docente')?.hasError('required')">
+            <p>*El docente es obligatorio.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Fecha</h1>
+        </div>
+        <input type="date" formControlName="fecha" name="fecha" [min]="hoy" [max]="hoy">
+        <div class="wrapMsg" *ngIf="asistenciaForm.get('fecha')?.invalid && 
+                                    (asistenciaForm.get('fecha')?.dirty || 
+                                    asistenciaForm.get('fecha')?.touched)">
+          <div class="msg" *ngIf="asistenciaForm.get('fecha')?.hasError('required')">
+            <p>*La fecha es obligatoria.</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="qrdata" class="wrapQr">
+        <qrcode [qrdata]="qrdata" class="qr"></qrcode>
+      </div>
+      <div class="wrapButton">
+        <ion-button (click)="registrarAsistencia()" expand="block" [disabled]="botonDeshabilitado" *ngIf="!botonDeshabilitado">Generar QR</ion-button>
+      </div>
+    </form>
+  </div>
+
+  <app-explore-container name="Tab 2 page"></app-explore-container>
+</ion-content>

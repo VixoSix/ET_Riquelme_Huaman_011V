@@ -1,0 +1,193 @@
+ion-content{
+    --background: var(--darker-purple);
+}
+.container-color{
+    background-color: var(--darker-purple);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Header{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex; 
+    flex-direction: column;
+    background-color: var(--dark-purple); //#24222d
+    padding: 2rem 0 2rem 0;
+    border-bottom-left-radius: 27px;
+    border-bottom-right-radius: 27px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin-bottom: 1rem;
+    .wrapBackButton{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 100%;
+        height: 0;
+        .backButton{
+            width: 35px;
+            height: 28.8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            position: relative;
+            top: .9rem;
+            left: 5%;
+            background-color: transparent;
+            ion-icon{
+                font-size: var(--font-size-icon-header);
+                color: #ffffff;
+                fill: #ffffff
+            }
+            ion-icon:active{
+                box-shadow: 0 0 35px 8px rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.05);
+                animation: fade-out 1s ease-in-out forwards;
+            }
+            @keyframes fade-out {
+                0% {
+                  box-shadow: 0 0 15px 8px rgba(255, 255, 255, 0.1);
+                  background: rgba(255, 255, 255, 0.05);
+                }
+                100% {
+                  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+                  background: rgba(255, 255, 255, 0);
+                }
+            }
+        } 
+    }
+    .wrapTitle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        h1{
+            font-size: var(--font-size-header);
+            margin: 0;
+            color: #ffffff;
+        }
+    } 
+}
+
+.container{
+    background: var(--colorful-background);
+    height: 90%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 18px;
+    margin-bottom: 5%;
+}
+
+.titulo{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 2rem 0 2rem 0;
+    h1{
+        margin: 0;
+        font-size: var(--detail-title);
+        width: 90%;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+.wrapData{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-bottom: 1rem;
+    p{
+        margin: 0;
+        padding-bottom: 10px;
+        font-size: 100%;
+    }
+    h2{
+        margin: 0;
+        font-size: var(--detail-h2);
+        font-weight: bold;
+    }
+}
+
+.img-wrap{
+    width: 100%;
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding-left: 5%;
+    img{
+        width: 95%;
+        max-height: 300px;
+        margin: 0;
+        padding: 0;
+        object-fit: cover;
+        border: 3px solid #000000;
+        border-radius: 18px;
+    }
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    .button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        ion-button{
+            --background: var(--dark-purple);
+            color: var(--button-letter);
+            width: 90%;
+            height: var(--button-height);
+            --border-radius: 10px;
+        }
+    }
+}
+
+@media (max-height: 741px) {
+    .container{
+        height: 85%;
+    }
+    .container-color{
+        height: 120%;
+    }
+}
+
+@media (max-height: 668px) {
+    .container{
+        height: 120%;
+    }
+    .container-color{
+        height: 130%;
+    }
+}
+
+@media (max-height: 481px) {
+    .container{
+        height: 120%;
+    }
+    .container-color{
+        height: 180%;
+    }
+}

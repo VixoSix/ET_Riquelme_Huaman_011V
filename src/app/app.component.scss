@@ -1,0 +1,10 @@
+ion-toolbar{
+    --background: linear-gradient(117deg, rgba(217,191,252,1) 0%, rgba(123,82,202,1) 100%);
+    color: #141021
+}
+ion-content{
+    --background: var(--darker-purple);
+}
+ion-item{
+    --background: var(--darker-purple);
+}

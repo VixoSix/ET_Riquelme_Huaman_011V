@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="Header">
+      <div class="wrapBackButton">
+        <button class="backButton" (click)="volver()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </div>
+      <div class="wrapTitle">
+        <h1>Justificaciones</h1> 
+      </div>
+    </div>
+
+    <div class="noHay" *ngIf="justificaciones.length === 0">
+      <p>No hay justificaciones registradas</p>
+    </div>
+
+    <div class="card">
+      <ion-card *ngFor="let j of justificacionesConAsignaturas">
+        <ion-card-header>
+          <ion-card-title>{{ j.asignatura?.nombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="wrap">
+            <p>Fecha: {{j.fecha}} </p>
+            <a (click)="buscarJustificaciones(j)">Ver más</a>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
